@@ -27,7 +27,8 @@ function playRound(playerSelection, computerSelection){
             return "You Win! scissors beats paper"
             } else if (playerSelection === "scissors" && computerSelection === "scissors") {
             return "Tie game"
-            }
+            } else 
+            return "Invalid"
         
 }
 
@@ -47,7 +48,11 @@ while (rounds < 5) {
     } else if (result.startsWith("Tie")) {
         rounds--
     }
-    console.log(result);
-    rounds++;
+    else if (result.startsWith("Invalid")){
+        rounds--
+    }
+    const currentScore = `Player wins: ${playerWins} | Computer wins: ${computerWins}`;
+    alert(`${result}. ${currentScore}`);
+    rounds++; 
 }
 console.log(`Player wins: ${playerWins} | Computer wins: ${computerWins}`);
