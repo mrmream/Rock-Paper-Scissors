@@ -4,8 +4,6 @@ function getComputerChoice(choices) {
     return choices[randomIndex]
 }
 
-
-const playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase()
 const computerSelection = getComputerChoice(RPS)
 
 function playRound(playerSelection, computerSelection){
@@ -32,27 +30,21 @@ function playRound(playerSelection, computerSelection){
         
 }
 
+const rockButton = document.querySelector("#rock")
+const paperButton = document.querySelector("#paper")
+const scissorsButton = document.querySelector("#scissors")
 
-
-let rounds = 0;
-let playerWins = 0;
-let computerWins = 0;
-while (rounds < 5) {
-    const playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
-    const computerSelection = getComputerChoice(RPS);
-    const result = playRound(playerSelection, computerSelection);
-    if (result.startsWith("You Win")) {
-        playerWins++;
-    } else if (result.startsWith("You Lose")) {
-        computerWins++;
-    } else if (result.startsWith("Tie")) {
-        rounds--
-    }
-    else if (result.startsWith("Invalid")){
-        rounds--
-    }
-    const currentScore = `Player wins: ${playerWins} | Computer wins: ${computerWins}`;
-    alert(`${result}. ${currentScore}`);
-    rounds++; 
-}
-console.log(`Player wins: ${playerWins} | Computer wins: ${computerWins}`);
+rockButton.addEventListener("click", function() {
+    const result = playRound("rock", computerSelection);
+    alert(result);
+  });
+  
+  paperButton.addEventListener("click", function() {
+    const result = playRound("paper", computerSelection);
+    alert(result);
+  });
+  
+  scissorsButton.addEventListener("click", function() {
+    const result = playRound("scissors", computerSelection);
+    alert(result);
+  });
