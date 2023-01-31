@@ -37,6 +37,7 @@ function playRound(playerSelection, computerSelection){
 let rounds = 0;
 let playerWins = 0;
 let computerWins = 0;
+
 while (rounds < 5) {
     const playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
     const computerSelection = getComputerChoice(RPS);
@@ -46,13 +47,20 @@ while (rounds < 5) {
     } else if (result.startsWith("You Lose")) {
         computerWins++;
     } else if (result.startsWith("Tie")) {
-        rounds--
+        rounds--;
     }
     else if (result.startsWith("Invalid")){
-        rounds--
+        rounds--;
     }
     const currentScore = `Player wins: ${playerWins} | Computer wins: ${computerWins}`;
     alert(`${result}. ${currentScore}`);
     rounds++; 
 }
-console.log(`Player wins: ${playerWins} | Computer wins: ${computerWins}`);
+if (playerWins > computerWins) {
+    alert ("You are a Winner!")
+}
+else if (computerWins > playerWins) {
+    alert ("You are a Loser!")
+}
+
+console.log(`Player wins: ${playerWins} | Computer wins: ${computerWins}`)
